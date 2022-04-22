@@ -9,7 +9,7 @@ module "openshift" {
   source  = "bcgov/openshift/deployer"
   version = "0.3.0"
 
-  name      = my-deployer
-  namespace = xxxxx-dev
+  name      = "my-deployer"
+  namespace = "xxxxx-dev"
 }
 ```

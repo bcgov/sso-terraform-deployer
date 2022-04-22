@@ -1,1 +1,1 @@
-# sso-terraform-deployer
+# terraform-openshift-deployer

@@ -1,0 +1,6 @@
+terraform 1.1.4
+python 3.8.6
+terraform-docs 0.12.1
+tflint 0.28.1
+semtag 0.1.1
+git-chglog 0.14.2

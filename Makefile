@@ -1,6 +1,6 @@
 .PHONY: changelog release
 
-SEMTAG=.bin/semtag.sh
+SEMTAG=semtag
 
 CHANGELOG_FILE=CHANGELOG.md
 

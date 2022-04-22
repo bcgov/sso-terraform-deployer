@@ -7,7 +7,7 @@ Terraform module which creates a service account to deploy applications on Opens
 ```hcl
 module "openshift" {
   source  = "bcgov/openshift/deployer"
-  version = "0.1.0"
+  version = "0.3.0"
 
   name: my-deployer
   namespace: xxxxx-dev

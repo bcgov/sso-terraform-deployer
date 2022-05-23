@@ -10,10 +10,19 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+<a name="v0.8.0"></a>
+## [v0.8.0] - 2022-05-22
+FEATURES:
+- Ignore secret changes in lifecycle
+
+
 <a name="v0.7.0"></a>
 ## [v0.7.0] - 2022-05-22
 FEATURES:
 - Remove provider block set directly inside this module
+
+DOCS:
+- Update changelog
 
 
 <a name="v0.6.0"></a>
@@ -55,7 +64,8 @@ FEATURES:
 - Add base terraform module
 
 
-[Unreleased]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.4.0...v0.5.0

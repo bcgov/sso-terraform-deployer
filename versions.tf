@@ -3,6 +3,6 @@ terraform {
 
   required_providers {
     # openshift = ">= 1.1.0"
-    kubernetes = ">= 2.10.0"
+    kubernetes = ">= 2.11.0"
   }
 }

@@ -9,9 +9,13 @@ terraform {
   required_version = ">= 0.15.3"
 }
 
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
 module "deployer" {
   source  = "bcgov/openshift/deployer"
-  version = "0.6.0"
+  version = "0.7.0"
 
   name      = "oc-deployer"
   namespace = "xxxxxx-prod"

@@ -224,6 +224,15 @@ resource "kubernetes_service_account" "this" {
     name      = var.name
     namespace = var.namespace
   }
+
+  automount_service_account_token = true
+
+  lifecycle {
+    ignore_changes = [
+      image_pull_secret,
+      secret
+    ]
+  }
 }
 
 resource "kubernetes_role_binding" "this" {

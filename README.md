@@ -15,7 +15,7 @@ provider "kubernetes" {
 
 module "deployer" {
   source  = "bcgov/openshift/deployer"
-  version = "0.8.0"
+  version = "0.9.0"
 
   name      = "oc-deployer"
   namespace = "xxxxxx-prod"

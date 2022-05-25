@@ -217,6 +217,22 @@ resource "kubernetes_role" "this" {
     resources  = ["processedtemplates"]
     verbs      = ["create"]
   }
+
+  dynamic "rule" {
+    for_each = toset(var.ops_bcgov ? ["1"] : [])
+    content {
+      api_groups = ["ops.gov.bc.ca"]
+      resources  = ["sysdig-teams"]
+      verbs = [
+        "get",
+        "list",
+        "create",
+        "update",
+        "patch",
+        "delete",
+      ]
+    }
+  }
 }
 
 resource "kubernetes_service_account" "this" {

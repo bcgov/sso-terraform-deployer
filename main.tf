@@ -1,4 +1,6 @@
 resource "kubernetes_role" "this" {
+  for_each = toset(var.privileged_namespaces)
+
   metadata {
     name = var.name
     labels = {
@@ -9,7 +11,7 @@ resource "kubernetes_role" "this" {
       "openshift.io/description"       = "deployer"
       "openshift.io/reconcile-protect" = "false"
     }
-    namespace = var.namespace
+    namespace = each.key
   }
   rule {
     api_groups = [""]
@@ -252,14 +254,16 @@ resource "kubernetes_service_account" "this" {
 }
 
 resource "kubernetes_role_binding" "this" {
+  for_each = toset(var.privileged_namespaces)
+
   metadata {
     name      = var.name
-    namespace = var.namespace
+    namespace = kubernetes_role.this[each.key].metadata.0.namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "Role"
-    name      = kubernetes_role.this.metadata.0.name
+    name      = kubernetes_role.this[each.key].metadata.0.name
   }
   subject {
     kind      = "ServiceAccount"

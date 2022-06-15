@@ -4,8 +4,14 @@ variable "name" {
 }
 
 variable "namespace" {
-  description = "Openshift Project to create k8s objects in"
+  description = "Openshift Project to create the service account in"
 }
+
+variable "privileged_namespaces" {
+  description = "Openshift Projects to assign privileges to the service account"
+  type        = list(string)
+}
+
 
 variable "ops_bcgov" {
   description = "Whether to manage bcgov API group resources"

@@ -10,6 +10,12 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+<a name="v0.10.0"></a>
+## [v0.10.0] - 2022-06-15
+FEATURES:
+- Allow to give privileges on other namespaces
+
+
 <a name="v0.9.0"></a>
 ## [v0.9.0] - 2022-05-24
 FEATURES:
@@ -70,7 +76,8 @@ FEATURES:
 - Add base terraform module
 
 
-[Unreleased]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/bcgov/sso-terraform-keycloak-client/compare/v0.6.0...v0.7.0

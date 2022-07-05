@@ -16,48 +16,48 @@ resource "kubernetes_role" "this" {
   rule {
     api_groups = [""]
     resources = [
-      "replicationcontrollers",
-      "persistentvolumeclaims",
-      "services",
-      "secrets",
       "configmaps",
       "endpoints",
+      "persistentvolumeclaims",
       "pods",
-      "pods/exec"
+      "pods/exec",
+      "replicationcontrollers",
+      "secrets",
+      "services",
     ]
     verbs = [
-      "watch",
-      "list",
-      "get",
       "create",
-      "update",
-      "patch",
       "delete",
-      "deletecollection"
+      "deletecollection",
+      "get",
+      "list",
+      "patch",
+      "update",
+      "watch",
     ]
   }
   rule {
     api_groups = [""]
     resources = [
+      "pods/log",
       "pods/status",
-      "pods/log"
     ]
     verbs = [
-      "watch",
-      "list",
       "get",
+      "list",
+      "watch",
     ]
   }
   rule {
     api_groups = [""]
     resources  = ["serviceaccounts"]
     verbs = [
+      "create",
+      "delete",
       "get",
       "list",
-      "create",
-      "update",
       "patch",
-      "delete",
+      "update",
     ]
   }
   rule {
@@ -76,106 +76,107 @@ resource "kubernetes_role" "this" {
     verbs = [
       "get",
       "list",
+      "update",
       "watch",
-      "update"
     ]
   }
   rule {
     api_groups = ["apps"]
     resources  = ["statefulsets"]
     verbs = [
-      "get",
       "create",
       "delete",
-      "update",
+      "get",
+      "list",
       "patch",
+      "update",
     ]
   }
   rule {
     api_groups = ["batch"]
     resources = [
-      "jobs",
       "cronjobs",
+      "jobs",
     ]
     verbs = [
-      "get",
       "create",
-      "update",
-      "patch",
       "delete",
-      "watch",
+      "get",
       "list",
+      "patch",
+      "update",
+      "watch",
     ]
   }
   rule {
     api_groups = ["policy"]
     resources  = ["poddisruptionbudgets"]
     verbs = [
-      "get",
       "create",
-      "update",
-      "patch",
       "delete",
+      "get",
+      "patch",
+      "update",
     ]
   }
   rule {
     api_groups = [
+      "authorization.openshift.io",
       "rbac.authorization.k8s.io",
-      "authorization.openshift.io"
     ]
     resources = [
-      "roles",
       "rolebindings",
+      "roles",
     ]
     verbs = [
+      "create",
+      "delete",
       "get",
       "list",
-      "create",
-      "update",
       "patch",
-      "delete",
+      "update",
     ]
   }
   rule {
     api_groups = [
+      "apps",
       "extensions",
-      "apps"
     ]
     resources = [
       "deployments",
       "replicasets",
     ]
     verbs = [
+      "create",
+      "delete",
       "get",
       "list",
-      "create",
-      "update",
       "patch",
-      "delete",
+      "update",
     ]
   }
   rule {
     api_groups = ["networking.k8s.io"]
     resources  = ["networkpolicies"]
     verbs = [
+      "create",
+      "delete",
       "get",
       "list",
-      "create",
-      "update",
       "patch",
-      "delete",
+      "update",
     ]
   }
   rule {
     api_groups = ["autoscaling"]
     resources  = ["horizontalpodautoscalers"]
     verbs = [
+      "create",
+      "delete",
       "get",
       "list",
-      "create",
-      "update",
       "patch",
-      "delete",
+      "update",
     ]
   }
   rule {
@@ -192,21 +193,21 @@ resource "kubernetes_role" "this" {
     api_groups = ["apps.openshift.io"]
     resources  = ["deploymentconfigs"]
     verbs = [
-      "get",
       "create",
-      "update",
+      "get",
       "patch",
+      "update",
     ]
   }
   rule {
     api_groups = ["route.openshift.io"]
     resources  = ["routes"]
     verbs = [
-      "get",
       "create",
-      "update",
-      "patch",
       "delete",
+      "get",
+      "patch",
+      "update",
     ]
   }
   rule {
@@ -226,12 +227,28 @@ resource "kubernetes_role" "this" {
       api_groups = ["ops.gov.bc.ca"]
       resources  = ["sysdig-teams"]
       verbs = [
+        "create",
+        "delete",
         "get",
         "list",
-        "create",
-        "update",
         "patch",
+        "update",
+      ]
+    }
+  }
+
+  dynamic "rule" {
+    for_each = toset(var.bcgov_tsc ? ["1"] : [])
+    content {
+      api_groups = ["porter.devops.gov.bc.ca"]
+      resources  = ["transportserverclaims"]
+      verbs = [
+        "create",
         "delete",
+        "get",
+        "list",
+        "patch",
+        "update",
       ]
     }
   }

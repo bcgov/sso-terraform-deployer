@@ -12,9 +12,14 @@ variable "privileged_namespaces" {
   type        = list(string)
 }
 
-
 variable "ops_bcgov" {
   description = "Whether to manage bcgov API group resources"
+  type        = bool
+  default     = false
+}
+
+variable "bcgov_tsc" {
+  description = "Whether to manage bcgov Transport Server Claims"
   type        = bool
   default     = false
 }

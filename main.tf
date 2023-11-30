@@ -180,6 +180,18 @@ resource "kubernetes_role" "this" {
     ]
   }
   rule {
+    api_groups = ["coordination.k8s.io"]
+    resources  = ["leases"]
+    verbs = [
+      "create",
+      "delete",
+      "get",
+      "list",
+      "patch",
+      "update",
+    ]
+  }
+  rule {
     api_groups = ["image.openshift.io"]
     resources  = ["imagestreamtags"]
     verbs      = ["delete"]
